@@ -6,6 +6,9 @@
 ![Groq](https://img.shields.io/badge/Groq-LLM-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Academic%20Project-purple)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://baymax-joelg-007.streamlit.app)
+
+**Live Demo:** [baymax-joelg-007.streamlit.app](https://baymax-joelg-007.streamlit.app)
 
 > A modular, AI-powered health monitoring platform built with Streamlit, SQLite, and the Groq LLM API.  
 > Logs symptoms, detects emergencies in real time, generates context-aware health advisories, and tracks your health over time — all in a secure, session-based web app.
