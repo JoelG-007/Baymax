@@ -26,3 +26,22 @@ Base = declarative_base()
 def init_db():
     from database import models
     Base.metadata.create_all(bind=engine)
+
+from auth.security import hash_password
+
+def init_db():
+    Base.metadata.create_all(bind=engine)
+    
+    # Seed master account
+    db = SessionLocal()
+    existing = db.query(User).filter(User.username == "joel").first()
+    if not existing:
+        db.add(User(
+            username="joel",
+            email="your@email.com",
+            hashed_password=hash_password("YourPassword123"),
+            role="master",
+            is_active=True
+        ))
+        db.commit()
+    db.close()
