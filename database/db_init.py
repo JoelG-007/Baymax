@@ -7,7 +7,7 @@ from config import DATABASE_URL
 # Create engine
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    connect_args={"check_same_thread": False}  # Needed for SQLite + Streamlit
 )
 
 # Enable SQLite foreign key support
@@ -25,21 +25,5 @@ Base = declarative_base()
 
 def init_db():
     from database import models
-    from database.models import User
-    from auth.security import hash_password
-
     Base.metadata.create_all(bind=engine)
 
-    # Seed master account
-    db = SessionLocal()
-    existing = db.query(User).filter(User.username == "joel").first()
-    if not existing:
-        db.add(User(
-            username="joel",
-            email="test1@gmail.com",
-            hashed_password=hash_password("TheM@dArchitect_JoelG007"),
-            role="master",
-            is_active=True
-        ))
-        db.commit()
-    db.close()
