@@ -24,7 +24,7 @@ def render_profile():
     st.subheader("Account Info")
 
     col1, col2 = st.columns(2)
-    col1.markdown(f"**Username**\n\n### {user.username}")
+    col1.markdown(f"**Username**** {user.username}")
     col2.markdown(f"**Role**\n\n### {user.role.capitalize()}")
 
     st.markdown("---")
